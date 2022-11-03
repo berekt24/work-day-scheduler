@@ -7,13 +7,15 @@ var today = dayjs();
 $('#currentDay').text(today.format('dddd MMMM D, YYYY'));
 
 
-
 $(function timeBlockColor() {
-  var currentHour = (new Date().getHours());
-$('.time-block')
-each(function(){
+  var everyHour = moment().hours();
+$('.time-block').each(function() {
   var currentHour = parseInt($(this).prop('id'));
   console.log(this);
+
+  if (currentHour > everyHour) {
+    $(this).addClass("future");
+  }
   
 
 
@@ -35,4 +37,4 @@ each(function(){
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-})}
+})})
