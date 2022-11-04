@@ -26,14 +26,30 @@ $(function timeBlockColor() {
 var saveButton = $(".saveBtn");
 
 saveButton.on("click", function () {
-  var currentTimeEl = $("#9-text")
-  localStorage.setItem(this.id, currentTimeEl.val())
-    console.log(currentTimeEl.val());
-    console.log(this.id);
-  // var time = $(this)(".hour");
-  // var agenda = $(this);
-})
-console.log(saveButton);
+  var currentTime = $(this).siblings(".hour").text();
+  var currentBlock = $(this).siblings(".description").val();
+  localStorage.setItem(currentTime, currentBlock);
+  
+  
+});
+// console.log(saveButton);
+
+function saveSchedule() {
+
+  $(".hour").each(function() {
+    var theHour = $(this).text();
+    var theSchedule = localStorage.getItem(theHour)
+      console.log(this)
+      console.log(theHour);
+
+
+  })
+}
+
+timeBlockColor();
+console.log();
+
+saveSchedule();
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
