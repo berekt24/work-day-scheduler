@@ -6,7 +6,7 @@ var today = dayjs();
 $('#currentDay').text(today.format('dddd MMMM D, YYYY'));
 
 
-$(function timeBlockColor() {
+function timeBlockColor() {
   var everyHour = (new Date()).getHours();
   $('.time-block').each(function () {
     var currentHour = parseInt($(this).prop('id'));
@@ -21,7 +21,7 @@ $(function timeBlockColor() {
     }
 
   })
-})
+}
 
 var saveButton = $(".saveBtn");
 
@@ -42,12 +42,14 @@ function saveSchedule() {
       console.log(this)
       console.log(theHour);
 
-
+      if(theSchedule !== null) {
+        $(this).siblings(".description").val(theSchedule);
+    }
   })
 }
 
 timeBlockColor();
-console.log();
+// console.log();
 
 saveSchedule();
   // TODO: Add a listener for click events on the save button. This code should
